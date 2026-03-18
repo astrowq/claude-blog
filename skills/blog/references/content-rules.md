@@ -203,25 +203,17 @@ signal. Replace with commas, hyphens (-), colons, or periods. Split sentences
 if an em dash was used to join two independent clauses.
 
 ### Passive Voice (≤10% of sentences)
-Yoast threshold. Switching to active voice improves readability scores
-and reduces bounce rates. Occasional passive is fine for variety; clusters
-of passive construction signal automated content.
+Yoast threshold. Clusters of passive voice signal automated content.
 
 ### Transition Words (20-30% of sentences)
-Yoast optimal range: ~25%. Below 20% feels choppy; above 35% reads as
-formulaic or AI-generated. Common transitions: however, therefore, additionally,
-for example, in contrast, similarly, meanwhile, consequently.
+Yoast optimal: ~25%. Below 20% feels choppy; above 35% reads AI-generated.
 
 ### Keyword Density (0.5-2%)
-Flag at >2.5%, penalize at >3%. Keyword stuffing performs worse than baseline
-in generative engines (-10%, Princeton GEO paper). Primary keyword should
-appear 3-5 times naturally (intro 1x, body 1-2x, conclusion 1x).
+Flag at >2.5%, penalize at >3%. Primary keyword: 3-5 times naturally.
 
 ### Filler Content Detection
-QRG 2025 explicitly targets pages that "artificially inflate content."
-Flag: entity drift (wandering off-topic), topical dilution (covering too
-many topics shallowly), needless repetition, intent mismatch between
-title and content body.
+QRG 2025 targets "artificially inflated content." Flag: entity drift,
+topical dilution, needless repetition, intent mismatch.
 
 ## Content Length Guidelines
 
@@ -261,27 +253,15 @@ fabrication risks in quality scoring.
 
 ## Information Gain -- The Key Differentiator
 
-Google's Information Gain patent (US11354342B2, 2022) explicitly promotes content
-that provides new information not found in existing top-ranking results. The patent
-describes a scoring system that rewards documents containing novel data points,
-perspectives, or evidence beyond what the current SERP already covers.
+Google's Information Gain patent (US11354342B2, 2022) rewards content with
+novel data points beyond what top-ranking results cover. AI synthesizes
+consensus but cannot create new data. Optimize by:
 
-AI can synthesize consensus but cannot create new data. Optimize by:
-
-1. **Original research**: Surveys, proprietary data, experiments
+1. **Original research**: Surveys, proprietary data, experiments (+25.1% top-10, Stratabeat)
 2. **Personal perspective**: Opinions AI cannot replicate
 3. **Expert interviews**: Practitioners with first-hand knowledge
 4. **Case studies**: Real metrics and results
-5. **Process documentation**: "Building in public" content
-6. **Industry-segmented analysis**: Break down findings by vertical/niche
-
-B2B SaaS websites conducting original research saw 25.1% average increase
-in top-10 rankings (Stratabeat study).
-
-**Animalz finding**: Industry-segmented content (breaking down advice/data by
-specific verticals rather than giving generic recommendations) achieved +43.4%
-top-10 rankings compared to non-segmented equivalents. Specificity beats
-generality in both traditional and AI search.
+5. **Industry-segmented analysis**: Break down by vertical (+43.4% top-10, Animalz)
 
 ## Meta Description Formula
 
@@ -296,52 +276,25 @@ Rules:
 
 ## Citation Format
 
-### Inline Attribution (Preferred)
-```markdown
-Organic CTR declined 61% with AI Overviews ([Seer Interactive](url), 2025).
-```
+Inline: `[Number]% [claim] ([Source](url), [Year])`. Always name the source.
+Study: Name the paper, institution, and year. Quote: Use quotation marks with speaker name and date.
 
-### Study Reference
-```markdown
-The Princeton GEO paper (KDD 2024) established that GEO methods boost
-AI visibility by up to 40%.
-```
+## Citation Tiers
 
-### Quote Attribution
-```markdown
-John Mueller clarified in November 2025: "Our systems don't care if content
-is created by AI or humans."
-```
-
-## Citation Tier System
-
-### Tier 1: Primary Authority (Highest Trust)
-Google Search Central, government agencies, .edu, international organizations,
-W3C, standards bodies.
-
-### Tier 2: Primary Data (Research & Studies)
-Ahrefs, SparkToro, Seer Interactive, BrightEdge, Princeton GEO Paper,
-Semrush Sensor, Advanced Web Ranking, Kevin Indig, Digitaloft, Onely, Seenos.
-
-### Tier 3: Trusted Journalism
-Search Engine Land, Search Engine Journal, Search Engine Roundtable,
-The Verge, Wired, TechCrunch.
-
-### Tier 4-5: AVOID
-SEO tool blogs (non-research), affiliate sites, content mills, unsourced
-roundups, AI-generated content farms. These hurt E-E-A-T.
+| Tier | Examples | Trust |
+|------|----------|-------|
+| 1 - Primary Authority | Google Search Central, .gov, .edu, W3C | Highest |
+| 2 - Primary Data | Ahrefs, SparkToro, Seer, BrightEdge, Princeton GEO Paper | High |
+| 3 - Trusted Journalism | Search Engine Land, SEJ, The Verge, Wired, TechCrunch | Good |
+| 4-5 - AVOID | SEO tool blogs (non-research), affiliate sites, content mills | Hurts E-E-A-T |
 
 ## Self-Promotion Rules
 
 - Maximum 1 brand mention per post (author bio context only)
-- Remove "At [Company], we..." patterns
-- Remove promotional links to own products
-- Convert sales language to educational content
+- Remove "At [Company], we..." patterns and promotional links
 - Author section should demonstrate E-E-A-T credentials, not sell
 
 ## Internal Linking
 
-- 5-10 internal links per 2,000-word post
-- Use descriptive anchor text (not "click here")
-- Link to related content naturally within context
+- 5-10 internal links per 2,000-word post, descriptive anchor text
 - Ensure bidirectional linking (pillar ↔ supporting pages)

@@ -13,6 +13,7 @@ allowed-tools:
   - Read
   - Write
   - Glob
+  - WebFetch
   - AskUserQuestion
 ---
 

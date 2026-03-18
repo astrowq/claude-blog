@@ -3,7 +3,7 @@ name: blog-write
 description: >
   Write new blog articles from scratch optimized for Google rankings and AI
   citations. Generates full articles with template selection, answer-first
-  formatting, TL;DR box, information gain markers, citation capsules, sourced
+  formatting, Key Takeaways summary box, information gain markers, citation capsules, sourced
   statistics, Pixabay/Unsplash images, built-in SVG chart generation, FAQ schema,
   internal linking zones, and proper heading hierarchy. Supports MDX, markdown,
   and HTML output.
@@ -212,22 +212,24 @@ tags: ["keyword1", "keyword2", "keyword3"]
 If the platform uses a different field name (e.g., `image`, `hero`, `thumbnail`),
 adapt to match the project's existing frontmatter convention.
 
-#### 5b. TL;DR Box
+#### 5b. Summary Box (Key Takeaways)
 
-Immediately after the introduction (before the first H2 body section), add a TL;DR box:
+Immediately after the introduction (before the first H2 body section), add a summary box:
 
 ```markdown
-> **TL;DR:** [40-60 word standalone summary that makes sense without reading the
-> full article. Contains the key finding or recommendation plus 1 statistic with
-> source attribution. Reader should get the core value from this alone.]
+> **Key Takeaways**
+> - [Core finding with statistic] ([Source], year)
+> - [Second key insight or recommendation]
+> - [Third actionable takeaway]
 ```
 
 Requirements:
-- 40-60 words, no more
+- 3-5 bullet points, 40-60 words combined
 - Must be self-contained - understandable without reading the article
 - Include 1 specific statistic with source name
 - State the key finding, recommendation, or answer
-- Place as a blockquote directly after the introduction paragraph
+- Default label: "Key Takeaways". If a persona is active, use the persona's summary_label
+- Backward compatible: accept existing TL;DR boxes during rewrites
 
 #### 5c. Answer-First Formatting (Critical)
 Every H2 section MUST open with a 40-60 word paragraph containing:
