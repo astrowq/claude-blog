@@ -18,7 +18,8 @@ When you explicitly invoke certain commands, the plugin may interact with extern
 |---------|---------|------|
 | AI image generation | Google Gemini API (via nanobanana-mcp) | Only when you run `/blog image` and have configured your own API key |
 | Audio narration | Google Gemini TTS API | Only when you run `/blog audio` and have configured your own API key |
-| Web research | Search engines | Only when you run `/blog write`, `/blog rewrite`, or `/blog factcheck` |
+| Web research and fetching | Search engines, public web pages | Used by most commands for research, SERP analysis, link verification, and source checking (`/blog write`, `/blog rewrite`, `/blog analyze`, `/blog brief`, `/blog outline`, `/blog strategy`, `/blog seo-check`, `/blog factcheck`, `/blog geo`, `/blog calendar`, `/blog persona`, `/blog cannibalization`) |
+| SERP and keyword data | DataForSEO API (~$0.01/call) | Only when you run `/blog cannibalization --api` with your own DataForSEO credentials. Local mode (default) requires no API |
 | CMS taxonomy sync | WordPress, Shopify, Ghost, Strapi, Sanity APIs | Only when you run `/blog taxonomy` with your own CMS credentials |
 | NotebookLM research | Google NotebookLM | Only when you run `/blog notebooklm` with your own configuration |
 
