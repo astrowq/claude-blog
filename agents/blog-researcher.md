@@ -189,6 +189,24 @@ Verification process:
 3. Check if the data appears on the original source (not just re-reported)
 4. Flag stats that only appear on low-authority sites
 
+## Finding YouTube Videos
+
+When researching for blog posts, find 2-3 relevant YouTube videos for embedding:
+
+1. Use blog-google if available:
+   ```bash
+   python3 skills/blog-google/scripts/run.py youtube_search search "[primary keyword]" --json
+   ```
+2. If blog-google unavailable, use WebSearch: `site:youtube.com [topic] [year] -shorts`
+3. Apply quality criteria (from `references/video-embeds.md`):
+   - Minimum 1,000 views, published within last 3 years
+   - Title or description contains the topic keyword
+   - From a channel with > 1,000 subscribers
+   - Prefer videos 5-15 minutes long
+4. Select 2-3 best videos and include in research output:
+   - video_id, title, channel name, view count, duration, publish date
+5. If no suitable videos found, note: "No suitable YouTube videos found for embedding"
+
 ## Red Flags (Reject These Sources)
 
 - Round numbers without methodology

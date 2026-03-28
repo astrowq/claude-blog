@@ -11,11 +11,6 @@ description: >
   "document query", "notebook library".
 user-invokable: true
 argument-hint: "[ask|discover|library|setup|status|cleanup] [question-or-url]"
-allowed-tools:
-  - Read
-  - Bash
-  - Glob
-  - Grep
 license: MIT
 metadata:
   author: AgriciDaniel

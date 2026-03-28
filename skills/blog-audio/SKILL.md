@@ -11,12 +11,6 @@ description: >
   "voice", "narration", "generate audio".
 user-invokable: true
 argument-hint: "[generate|voices|setup] [file-or-text] [--mode summary|full|dialogue] [--voice name]"
-allowed-tools:
-  - Read
-  - Write
-  - Bash
-  - Glob
-  - Grep
 license: MIT
 metadata:
   author: AgriciDaniel

@@ -18,19 +18,9 @@ license: MIT
 compatibility: Requires Claude Code and Python 3.11+ for quality scoring
 metadata:
   author: AgriciDaniel
-  version: "1.6.0"
+  version: "1.7.0"
 user-invokable: true
 argument-hint: "[write|rewrite|analyze|brief|calendar|cannibalization|strategy|outline|seo-check|schema|repurpose|geo|image|audit|factcheck|persona|taxonomy|notebooklm|audio] [topic-or-file]"
-allowed-tools:
-  - Read
-  - Write
-  - Edit
-  - Bash
-  - Grep
-  - Glob
-  - WebFetch
-  - WebSearch
-  - Task
 ---
 
 # Blog -- Content Engine for Rankings & AI Citations
@@ -63,6 +53,7 @@ Perplexity, Google AI Overviews, Gemini).
 | `/blog taxonomy [suggest\|sync\|audit]` | Tag/category management across CMS platforms |
 | `/blog notebooklm <question>` | Query NotebookLM for source-grounded research |
 | `/blog audio [generate\|voices\|setup]` | Generate audio narration of blog posts |
+| `/blog google [command] [args]` | Google API data: PSI, CrUX, GSC, GA4, NLP, YouTube, Keywords |
 | `/blog update <file>` | Update existing post with fresh stats (routes to rewrite) |
 
 ## Orchestration Logic
@@ -91,6 +82,7 @@ Perplexity, Google AI Overviews, Gemini).
    - `image` → `blog-image` (AI image generation and editing)
    - `notebooklm` / `notebook` / `query-notebook` → `blog-notebooklm` (source-grounded notebook queries)
    - `audio` / `narrate` / `tts` → `blog-audio` (audio narration generation)
+   - `google` / `gsc` / `psi` / `pagespeed` / `crux` / `cwv` → `blog-google` (Google API data and reports)
    - `update` → `blog-rewrite` (with freshness-update mode)
 
 ### Platform Detection
@@ -119,7 +111,7 @@ Every blog post targets these 6 optimization pillars:
 |--------|--------|---------------|
 | Answer-First Formatting | +340% AI citations | Every H2 opens with 40-60 word stat-rich paragraph |
 | Real Sourced Data | E-E-A-T trust | Tier 1-3 sources only, inline attribution |
-| Visual Media | Engagement + citations | Pixabay/Unsplash images + AI generation via Gemini + built-in SVG charts |
+| Visual Media | Engagement + citations | Pixabay/Unsplash images + AI generation via Gemini + built-in SVG charts + YouTube video embeds |
 | FAQ Schema | +28% AI citations | Structured FAQ with 40-60 word answers |
 | Content Structure | AI extractability | 50-150 word chunks, question headings, proper H hierarchy |
 | Freshness Signals | 76% of top citations | Updated within 30 days, dateModified schema |
@@ -176,6 +168,7 @@ Load on-demand as needed (12 references):
 - `references/ai-crawler-guide.md` -- AI bot management, robots.txt, SSR requirements
 - `references/schema-stack.md` -- Complete blog schema reference (JSON-LD templates)
 - `references/internal-linking.md` -- Link architecture, anchor text, hub-and-spoke model
+- `references/video-embeds.md` -- YouTube video embedding patterns, quality criteria, VideoObject schema
 
 ## Content Templates
 
@@ -222,6 +215,7 @@ Templates are in `templates/` and contain section structure, markers, and checkl
 | `blog-taxonomy` | CMS taxonomy management (WordPress, Shopify, Ghost, Strapi, Sanity) |
 | `blog-notebooklm` | Query Google NotebookLM for source-grounded research from user documents |
 | `blog-audio` | Generate audio narration with Gemini TTS (summary/full/dialogue modes, 30 voices) |
+| `blog-google` | Google API integration: PSI, CrUX CWV, GSC, URL Inspection, Indexing, GA4, NLP, YouTube, Keywords, PDF reports |
 
 ## Agents
 
@@ -285,6 +279,12 @@ The `blog-audio` sub-skill is user-invocable (`/blog audio generate`) and can be
 offered as an optional final step after blog-write completes. Generates summary,
 full-article, or two-speaker dialogue narration via Gemini TTS. Falls back
 gracefully when `GOOGLE_AI_API_KEY` is not configured.
+
+The `blog-google` sub-skill is both user-invocable (`/blog google pagespeed`)
+and callable internally by `blog-seo-check`, `blog-rewrite`, `blog-geo`, and
+`blog-audit` for real Google performance data. Falls back gracefully when
+credentials are not configured. Shares config with claude-seo at
+`~/.config/claude-seo/google-api.json`.
 
 ## Integration
 

@@ -4,7 +4,7 @@
 
 This repository contains **Claude Blog**, a Tier 4 Claude Code skill for blog content
 creation, optimization, and management. It follows the Agent Skills open standard and the
-3-layer architecture (directive, orchestration, execution). 21 sub-skills, 4 specialized
+3-layer architecture (directive, orchestration, execution). 22 sub-skills, 4 specialized
 subagents, and 12 content templates are dual-optimized for Google rankings (December 2025
 Core Update, E-E-A-T) and AI citations (GEO/AEO).
 
@@ -13,13 +13,13 @@ Core Update, E-E-A-T) and AI citations (GEO/AEO).
 ```
 claude-blog/
   CLAUDE.md                          # Project instructions (this file)
-  .claude-plugin/plugin.json         # Plugin manifest (v1.6.2)
+  .claude-plugin/plugin.json         # Plugin manifest (v1.7.0)
   .claude-plugin/marketplace.json    # Marketplace catalog for distribution
   .mcp.json                          # MCP server configuration (nanobanana-mcp)
   pyproject.toml                     # Python packaging (3.11+)
-  skills/                            # 21 sub-skills (blog/ is the orchestrator)
+  skills/                            # 22 sub-skills (blog/ is the orchestrator)
     blog/SKILL.md                   # Main orchestrator, routing, scoring
-      references/                   # 12 on-demand knowledge files
+      references/                   # 13 on-demand knowledge files
       templates/                    # 12 content templates
       scripts/                     # Python analysis scripts
     blog-write/SKILL.md            # Write new articles from scratch
@@ -51,6 +51,11 @@ claude-blog/
       SKILL.md                    # Audio generation sub-skill
       references/                 # 1 reference doc (30 voice catalog)
       scripts/                    # 5 Python scripts + requirements.txt
+    blog-google/                   # Google API integration
+      SKILL.md                    # Google API sub-skill (13 commands, 4 tiers)
+      references/                 # 3 reference docs (auth, API, quotas)
+      scripts/                    # 11 Google API scripts + venv wrapper
+      assets/templates/           # 3 report templates
   agents/                            # 4 specialized subagents
     blog-researcher.md              # Statistics and source research
     blog-writer.md                  # Content generation
@@ -83,11 +88,13 @@ claude-blog/
 | `/blog taxonomy` | Tag/category CMS management |
 | `/blog notebooklm` | Query NotebookLM for source-grounded research |
 | `/blog audio` | Generate audio narration via Gemini TTS |
+| `/blog google` | Google API data: PSI, CrUX, GSC, GA4, NLP, YouTube, Keywords |
 
 ## Development Rules
 
 - Keep SKILL.md files under 500 lines / 5000 tokens
-- Reference files should be focused and under 200 lines
+- SKILL.md frontmatter: only valid fields (name, description, user-invokable, argument-hint, compatibility, license, metadata, disable-model-invocation). Do NOT use `allowed-tools` -- it is not a Claude Code spec field
+- New reference files should be focused and under 200 lines. Existing comprehensive references (platform-guides, schema-stack, content-templates, distribution-playbook) are exempt from this guideline
 - Scripts must have docstrings, CLI interface, and JSON output
 - Follow kebab-case naming for all skill directories
 - Agents invoked via Task tool, never via Bash
