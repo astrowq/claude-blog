@@ -40,7 +40,11 @@ claude-blog is a Claude Code skill ecosystem for creating, optimizing, and manag
 **Plugin Install (Claude Code 1.0.33+):**
 
 ```bash
-claude plugin install claude-blog@agricidaniel-blog
+# Add marketplace (one-time)
+/plugin marketplace add AgriciDaniel/claude-blog
+
+# Install plugin
+/plugin install claude-blog@AgriciDaniel-claude-blog
 ```
 
 **One-command install (Unix/macOS):**
